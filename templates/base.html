@@ -9,6 +9,26 @@
     {% bootstrap_css %}
   </head>
   <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<div class="collapse navbar-collapse" id="navbarText">
+	  <ul class="navbar-nav mr-auto">
+	    <li class="nav-item active">
+	      <a class="nav-link" href="/">Jokes length</a>
+	    </li>
+	  </ul>
+	  <span class="navbar-text">
+	    {% if request.user.is_authenticated %}
+	    {{ request.user.username }}
+	    <a href="{% url 'logout' %}">logout</a>
+	    {% else %}
+	    <a href="{% url 'login' %}">login</a>
+	    {% endif %}
+	  </span>
+	</div>
+      </nav>
+    </header>
+
     <div class="container">
       {% block content %}
       {% endblock content %}
