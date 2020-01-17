@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.shortcuts import render
 
@@ -8,6 +9,7 @@ def index(request):
     return render(request, 'jokes/index.html')
 
 
+@login_required
 def graph(request):
     return render(request, 'jokes/graph.html')
 
