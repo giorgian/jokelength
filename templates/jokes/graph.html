@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<h1>The Graph</h1>
+<canvas id="canvas">
+<script type="text/javascript" src="{% static 'js/Chart.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jokes.js' %}"></script>
+{% endblock content %}
