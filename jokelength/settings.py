@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bootstrap4',
     'chartjs',
+    'compressor'
 ]
 
 MIDDLEWARE = [
@@ -121,9 +122,19 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+
+STATICFILES_FINDERS = [
+    'compressor.finders.CompressorFinder'
+]
+
+COMPRESS_PRECOMPILERS = (
+    ('text/x-scss', 'django_libsass.SassCompiler'),
+)
 
 LOGOUT_REDIRECT_URL = '/'
 LOGIN_REDIRECT_URL = '/'

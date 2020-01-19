@@ -1,4 +1,4 @@
-{% load bootstrap4 static %}
+{% load bootstrap4 compress static %}
 <!doctype html>
 <html lang="en">
   <head>
@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="theme-color" content="#000000"/>
     {% bootstrap_css %}
+    {% compress css %}
+    <link type="text/x-scss" href="{% static 'scss/graph.scss' %}" rel="stylesheet" media="screen">
+    {% endcompress %}
   </head>
   <body>
     <header>
